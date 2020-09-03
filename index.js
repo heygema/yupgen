@@ -61,16 +61,8 @@ http
     let endMsg = JSON.stringify({
       message: "Request Finished"
     });
-    let invalidMsg = JSON.stringify({
-      message: "Invalid Method"
-    });
     switch (req.url) {
       case "/":
-        if (req.method !== "POST") {
-          res.statusCode = 404;
-          res.end(invalidMsg);
-        }
-
         let body = "";
         req.on("data", chunk => {
           body += chunk.toString();
