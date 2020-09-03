@@ -1,5 +1,6 @@
 const fs = require("fs");
 const http = require("http");
+const prettier = require("prettier");
 
 const outputFolder = "./output/";
 
@@ -88,9 +89,17 @@ http
           let isTypeGen = (parsedBody && parsedBody.typegen) || false;
           let data = (parsedBody && parsedBody.data) || {};
 
+          let formatted = prettier.format(
+            getSchema(data, fileName.split(".")[0] || "noName"),
+            {
+              semi: false,
+              parser: "babel"
+            }
+          );
+
           fs.writeFile(
-            outputFolder + fileName,
-            isTypeGen ? getSchema(data) : JSON.stringify(data, null, 2),
+            outputFolder + (isTypeGen ? `${fileName}.ts` : fileName),
+            isTypeGen ? formatted : JSON.stringify(data, null, 2),
             (err, _) => {
               if (err) {
                 res.end(
