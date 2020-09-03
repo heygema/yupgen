@@ -3,7 +3,7 @@ const http = require("http");
 
 const outputFolder = "./output/";
 
-fs.exists("outuput", existed => {
+fs.exists("output", existed => {
   if (!existed) {
     fs.mkdirSync("output");
   }
