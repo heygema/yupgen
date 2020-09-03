@@ -16,3 +16,5 @@ body: {
   typegen: true;
 }
 ```
+
+Everything's in the output/ folder in repo's directory
