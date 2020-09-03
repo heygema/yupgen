@@ -39,12 +39,16 @@ function resolveSchema(data) {
     return `${array}.${startOf}${resolveSchema(data[0])}${endOf}`;
   }
 
+  if (!data) {
+    return string;
+  }
+
   if (typeof data === "object" && !Array.isArray(data)) {
     let [startShape, endShape] = bracketBreaker(shape);
     let objResult = "";
     for (let key of Object.keys(data)) {
       let value = data[key];
-      objResult += `${key}: ${resolveSchema(value)} \n`;
+      objResult += `${key}: ${resolveSchema(value)}, \n`;
     }
 
     result = `${object}.${startShape}{${objResult}}${endShape}.defined()`;
@@ -54,7 +58,7 @@ function resolveSchema(data) {
 }
 
 function getSchema(data, name) {
-  let imports = `import {object, string, array, number, InferType} from 'yup;`;
+  let imports = `import {object, string, array, number, InferType} from 'yup';`;
   let declaration = `export const ${name} = `;
   let typing = `export type TypeOf${name} = InferType<typeof ${name}>;`;
   return `${imports}\n\n${declaration}${resolveSchema(data)};\n\n${typing}`;
