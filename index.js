@@ -2,7 +2,12 @@ const fs = require("fs");
 const http = require("http");
 
 const outputFolder = "./output/";
-fs.mkdirSync("output");
+
+fs.exists("outuput", existed => {
+  if (!existed) {
+    fs.mkdirSync("output");
+  }
+});
 
 function bracketBreaker(input) {
   return input.replace(/\(/g, "(_").split("_");
