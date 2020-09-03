@@ -66,6 +66,12 @@ http
     let endMsg = JSON.stringify({
       message: "Request Finished"
     });
+    let invalidMethod = JSON.stringify({
+      message: "Invalid Method use POST"
+    });
+    if (req.method !== "POST") {
+      res.end(invalidMethod);
+    }
     switch (req.url) {
       case "/":
         let body = "";
