@@ -10,19 +10,21 @@ fs.exists("output", existed => {
   }
 });
 
-function bracketBreaker(input) {
-  return input.replace(/\(/g, "(_").split("_");
+function bracketBreaker(input = "") {
+  return String(input).replace(/\(/g, "(_").split("_");
 }
 
-function resolveSchema(data) {
-  const object = "object()";
-  const shape = "shape()";
-  const string = "string()";
-  const array = "array()";
-  const number = "number()";
-  const required = "required()";
-  const of = "of()";
+const object = "object()";
+const shape = "shape()";
+const string = "string()";
+const array = "array()";
+const number = "number()";
+const required = "required()";
+const of = "of()";
+const mixed = "mixed()";
+const nullable = "nullable()";
 
+function resolveSchema(data) {
   let result = "";
 
   switch (typeof data) {
@@ -33,35 +35,36 @@ function resolveSchema(data) {
   }
 
   if (Array.isArray(data)) {
-    let [startOf, endOf] = bracketBreaker(of);
+    let [ofOpen, ofClose] = bracketBreaker(of);
     if (data.length === 0) {
       return array;
     }
-    return `${array}.${startOf}${resolveSchema(data[0])}${endOf}`;
+    return `${array}.${ofOpen}${resolveSchema(data[0])}${ofClose}`;
   }
 
   if (!data) {
-    return string;
+    return `${mixed}.${nullable}`;
   }
 
   if (typeof data === "object" && !Array.isArray(data)) {
-    let [startShape, endShape] = bracketBreaker(shape);
+    let [shapeOpen, shapeClose] = bracketBreaker(shape);
     let objResult = "";
     for (let key of Object.keys(data)) {
       let value = data[key];
       objResult += `${key}: ${resolveSchema(value)}, \n`;
     }
 
-    result = `${object}.${startShape}{${objResult}}${endShape}.defined()`;
+    result = `${object}.${shapeOpen}{${objResult}}${shapeClose}.defined()`;
   }
 
   return result;
 }
 
-function getSchema(data, name) {
+function getSchema(data, name = "noName") {
   let imports = `import {object, string, array, number, InferType} from 'yup';`;
   let declaration = `export const ${name} = `;
-  let typing = `export type TypeOf${name} = InferType<typeof ${name}>;`;
+  let capitalizedName = `${name.slice(0, 1).toUpperCase()}${name.slice(1)}`;
+  let typing = `export type ${capitalizedName} = InferType<typeof ${name}>;`;
   return `${imports}\n\n${declaration}${resolveSchema(data)};\n\n${typing}`;
 }
 
@@ -95,6 +98,10 @@ http
               semi: false,
               parser: "babel"
             }
+          );
+
+          console.log(
+            `writting ${isTypeGen ? fileName + ".ts" : fileName}....`
           );
 
           fs.writeFile(
