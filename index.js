@@ -61,7 +61,7 @@ function resolveSchema(data) {
 }
 
 function getSchema(data, name = "noName") {
-  let imports = `import {object, string, array, number, InferType} from 'yup';`;
+  let imports = `import {object, string, array, number, mixed, InferType} from 'yup';`;
   let declaration = `export const ${name} = `;
   let capitalizedName = `${name.slice(0, 1).toUpperCase()}${name.slice(1)}`;
   let typing = `export type ${capitalizedName} = InferType<typeof ${name}>;`;
