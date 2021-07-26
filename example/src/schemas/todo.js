@@ -1,4 +1,4 @@
-import { object, number, string, boolean } from "yup"
+import { object, number, string, boolean } from "yup";
 
 export const todo = object()
   .shape({
@@ -7,4 +7,4 @@ export const todo = object()
     title: string().required(),
     completed: boolean().required(),
   })
-  .defined()
+  .defined();

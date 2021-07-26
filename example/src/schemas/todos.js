@@ -1,4 +1,4 @@
-import { array, object, number, string, boolean } from "yup"
+import { array, object, number, string, boolean } from "yup";
 
 export const todos = array().of(
   object()
@@ -9,4 +9,4 @@ export const todos = array().of(
       completed: boolean().required(),
     })
     .defined()
-)
+);

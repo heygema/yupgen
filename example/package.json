@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "yupgen": "^0.1.54"
   },
   "devDependencies": {},
   "scripts": {
