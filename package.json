@@ -1,6 +1,6 @@
 {
   "name": "yupgen",
-  "version": "0.1.53",
+  "version": "0.1.54",
   "description": "This package generates scema from REST endpoint to Yup Schema definition for object validation.",
   "main": "./lib/cli.js",
   "bin": {
