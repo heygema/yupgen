@@ -1,15 +1,20 @@
 {
-  "name": "logging",
-  "version": "1.0.0",
-  "description": "logging!!!!",
-  "main": "logServer.js",
+  "name": "@heygema/yupgen",
+  "version": "0.0.1",
+  "description": "This package generate types from REST endpoint to Yup Type definition",
+  "main": "./lib/cli.js",
+  "bin": {
+    "yupgen": "./lib/cli.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index"
   },
-  "keywords": [],
+  "files": ["./lib/*"],
+  "keywords": ["typegen", "yup"],
   "author": "@heygema",
-  "license": "ISC",
+  "homepage": "https://github.com/heygema/yupgen#readme",
+  "license": "MIT",
   "dependencies": {
     "prettier": "^2.1.1"
   }
