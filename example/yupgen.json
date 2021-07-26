@@ -1,0 +1,10 @@
+{
+  "types": [
+    {
+      "name": "todo",
+      "source": "https://jsonplaceholder.typicode.com/todos",
+      "method": "GET"
+    }
+  ],
+  "options": {}
+}
