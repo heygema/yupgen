@@ -8,14 +8,14 @@ Types generation utils for [Yup](https://github.com/jquense/yup)
 # install (npm/yarn)
 npm install @heygema/yupgen
 
-# add config
-touch yupgen.json
+# init config
+yupgen init
 
 # run
 yupgen
 ```
 
-### example config:
+### Example config:
 
 - default outDir if not specified will be on the root and schemas/ folder
 - will detect if there's tsconfig.json file, and hence generate .ts output file with extra type definition.
@@ -39,7 +39,7 @@ yupgen
 }
 ```
 
-### example output:
+### Example output:
 
 ```js
 import { object, number, string, boolean } from "yup";
