@@ -1,20 +1,55 @@
-# YupTypeGenServer
+# yupgen
 
-What to do eh?
+Types generation utils for [Yup](https://github.com/jquense/yup)
+
+### How to use:
 
 ```bash
-yarn install
-yarn start
+# install (npm/yarn)
+npm install @heygema/yupgen
+
+# add config
+touch yupgen.json
+
+# run
+yupgen
 ```
 
-Hit request at http://localhost:8091 with:
-```javascript
-method: POST;
-body: {
-  file: string;
-  data: any;
-  typegen: true;
+### example config:
+
+- default outDir if not specified will be on the root and schemas/ folder
+- will detect if there's tsconfig.json file, and hence generate .ts output file with extra type definition.
+
+```json
+{
+  "types": [
+    {
+      "name": "todo",
+      "source": "https://jsonplaceholder.typicode.com/todos/1",
+      "method": "GET"
+    },
+    {
+      "name": "todos",
+      "source": "https://jsonplaceholder.typicode.com/todos"
+    }
+  ],
+  "options": {
+    "outDir": "src/schemas"
+  }
 }
 ```
 
-Everything's in the output/ folder in repo's directory
+### example output:
+
+```js
+import { object, number, string, boolean } from "yup";
+
+export const todo = object()
+  .shape({
+    userId: number().required(),
+    id: number().required(),
+    title: string().required(),
+    completed: boolean().required()
+  })
+  .defined();
+```
