@@ -1,6 +1,6 @@
 # yupgen
 
-Types generation utils for [Yup](https://github.com/jquense/yup)
+Schemas generation utils for [Yup](https://github.com/jquense/yup)
 
 ### How to use:
 
@@ -22,7 +22,7 @@ yupgen
 
 ```json
 {
-  "types": [
+  "schemas": [
     {
       "name": "todo",
       "source": "https://jsonplaceholder.typicode.com/todos/1",
