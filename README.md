@@ -17,6 +17,22 @@ yupgen
 
 ### Example config:
 
+Config file name: yupgen.json:
+
+```typescript
+{
+  schemas: Array<{
+    name?: string,
+    source: string,
+    method?: string,
+    body: string
+  }>,
+  options: {
+    outDir?: string
+  }
+}
+```
+
 - default outDir if not specified will be on the root and schemas/ folder
 - will detect if there's tsconfig.json file, and hence generate .ts output file with extra type definition.
 
@@ -40,6 +56,8 @@ yupgen
 ```
 
 ### Example output:
+
+example on todo.js
 
 ```js
 import { object, number, string, boolean } from "yup";
