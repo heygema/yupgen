@@ -10,5 +10,7 @@
       "source": "https://jsonplaceholder.typicode.com/todos"
     }
   ],
-  "options": {}
+  "options": {
+    "outDir": "src/schemas"
+  }
 }
