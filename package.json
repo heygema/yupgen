@@ -10,12 +10,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index"
   },
-  "files": ["./lib/*"],
-  "keywords": ["typegen", "yup"],
+  "files": [
+    "./lib/*"
+  ],
+  "keywords": [
+    "typegen",
+    "yup"
+  ],
   "author": "@heygema",
   "homepage": "https://github.com/heygema/yupgen#readme",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^4.1.1",
     "prettier": "^2.1.1"
   }
 }
