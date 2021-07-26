@@ -5,8 +5,8 @@ Types generation utils for [Yup](https://github.com/jquense/yup)
 ### How to use:
 
 ```bash
-# install (npm/yarn)
-npm install @heygema/yupgen
+# install (npm/yarn) from npm registry
+npm install yupgen
 
 # init config
 yupgen init
