@@ -1,6 +1,6 @@
 {
   "name": "@heygema/yupgen",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "This package generate types from REST endpoint to Yup Type definition",
   "main": "./lib/cli.js",
   "bin": {
