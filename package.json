@@ -1,6 +1,6 @@
 {
   "name": "yupgen",
-  "version": "0.1.5",
+  "version": "0.1.51",
   "description": "This package generates scema from REST endpoint to Yup Schema definition for object validation.",
   "main": "./lib/cli.js",
   "bin": {
@@ -10,7 +10,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index"
   },
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "Object validation",
     "javascript",
