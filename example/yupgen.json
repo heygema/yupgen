@@ -2,8 +2,12 @@
   "types": [
     {
       "name": "todo",
-      "source": "https://jsonplaceholder.typicode.com/todos",
+      "source": "https://jsonplaceholder.typicode.com/todos/1",
       "method": "GET"
+    },
+    {
+      "name": "todos",
+      "source": "https://jsonplaceholder.typicode.com/todos"
     }
   ],
   "options": {}
