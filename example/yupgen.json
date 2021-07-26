@@ -1,5 +1,5 @@
 {
-  "types": [
+  "schemas": [
     {
       "name": "todo",
       "source": "https://jsonplaceholder.typicode.com/todos/1",
