@@ -1,7 +1,7 @@
 {
   "name": "@heygema/yupgen",
   "version": "0.1.0",
-  "description": "This package generate types from REST endpoint to Yup Type definition",
+  "description": "This package generates scema from REST endpoint to Yup Scehma definition for object validation.",
   "main": "./lib/cli.js",
   "bin": {
     "yupgen": "./lib/cli.js"
@@ -10,13 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index"
   },
-  "files": [
-    "./lib/*"
-  ],
-  "keywords": [
-    "typegen",
-    "yup"
-  ],
+  "files": ["./lib/*"],
+  "keywords": ["typegen", "yup"],
   "author": "@heygema",
   "homepage": "https://github.com/heygema/yupgen#readme",
   "repository": {
