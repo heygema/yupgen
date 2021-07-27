@@ -17,7 +17,7 @@ yupgen
 
 ### Example config:
 
-Config file name: yupgen.json:
+Config file name: **_yupgen.json_**
 
 ```typescript
 {
